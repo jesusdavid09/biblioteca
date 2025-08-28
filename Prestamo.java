@@ -1,32 +1,34 @@
 import java.time.LocalDate;
 
 public class Prestamo {
-    private Libro libro;
-    private Usuario usuario;
-    private LocalDate fechaInicio;
-    private LocalDate fechaLimite;
+   private Libro lib;
+   private Usuario usu;
+   private LocalDate fIni;
+   private LocalDate fLim;
 
-    public Prestamo(Libro libro, Usuario usuario, LocalDate fechaInicio, LocalDate fechaLimite) {
-        this.libro = libro;
-        this.usuario = usuario;
-        this.fechaInicio = fechaInicio;
-        this.fechaLimite = fechaLimite;
-    }
+   public Prestamo(Libro l, Usuario u, LocalDate ini, LocalDate lim) {
+      this.lib = l;
+      this.usu = u;
+      this.fIni = ini;
+      this.fLim = lim;
+   }
 
-    public Libro getLibro() {
-        return libro;
-    }
+   public Libro getLibro() {
+      return lib;
+   }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
+   public Usuario getUsuario() {
+      return usu;
+   }
 
-    public LocalDate getFechaLimite() {
-        return fechaLimite;
-    }
+   public LocalDate getFechaLimite() {
+      return fLim;
+   }
 
-    public void mostrarDatos() {
-        System.out.println("Libro: " + libro.getTitulo() + " | Usuario: " + usuario.getIdUsuario() +
-                " | Inicio: " + fechaInicio + " | Límite: " + fechaLimite);
-    }
+   public void mostrarDatos() {
+      System.out.println("Prestamo -> Libro: " + lib.getTitulo() + 
+                         " | User: " + usu.getIdUsuario() +
+                         " | desde: " + fIni + 
+                         " | hasta: " + fLim);
+   }
 }

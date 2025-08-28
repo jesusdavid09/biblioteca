@@ -1,81 +1,82 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Biblioteca biblioteca = new Biblioteca();
-        Scanner sc = new Scanner(System.in);
-        int opcion;
+   public static void main(String[] args) {
+      Biblioteca biblio = new Biblioteca();
+      Scanner sc = new Scanner(System.in);
+      int op;
 
-        do {
-            System.out.println("\n--- Menú Biblioteca ---");
-            System.out.println("1. Registrar libro");
-            System.out.println("2. Registrar usuario");
-            System.out.println("3. Prestar libro");
-            System.out.println("4. Devolver libro");
-            System.out.println("5. Mostrar libros disponibles");
-            System.out.println("6. Mostrar usuarios");
-            System.out.println("7. Mostrar historial de préstamos");
-            System.out.println("0. Salir");
-            System.out.print("Opción: ");
-            opcion = sc.nextInt();
-            sc.nextLine();
+      do{
+         System.out.println("\nMenu biblio");
+         System.out.println("1. agregar libro");
+         System.out.println("2. agregar usuario");
+         System.out.println("3. prestar libro");
+         System.out.println("4. devolver libro");
+         System.out.println("5. ver libros");
+         System.out.println("6. ver usuarios");
+         System.out.println("7. ver prestamos");
+         System.out.println("0. salir");
+         System.out.print("elige opcion: ");
 
-            switch (opcion) {
-                case 1:
-                    System.out.print("Título: ");
-                    String titulo = sc.nextLine();
-                    System.out.print("Autor: ");
-                    String autor = sc.nextLine();
-                    System.out.print("Código: ");
-                    String codigo = sc.nextLine();
-                    biblioteca.registrarLibro(new Libro(titulo, autor, codigo));
-                    break;
+         op = sc.nextInt();
+         sc.nextLine(); // limpiar buffer
 
-                case 2:
-                    System.out.print("Nombre: ");
-                    String nombre = sc.nextLine();
-                    System.out.print("ID Usuario: ");
-                    String idUsuario = sc.nextLine();
-                    biblioteca.registrarUsuario(new Usuario(nombre, idUsuario));
-                    break;
+         switch(op){
+            case 1:
+               System.out.print("titulo: ");
+               String tit = sc.nextLine();
+               System.out.print("autor: ");
+               String au = sc.nextLine();
+               System.out.print("codigo: ");
+               String cod = sc.nextLine();
+               biblio.registrarLibro(new Libro(tit, au, cod));
+               break;
 
-                case 3:
-                    System.out.print("Código libro: ");
-                    String codPrestamo = sc.nextLine();
-                    System.out.print("ID usuario: ");
-                    String idPrestamo = sc.nextLine();
-                    biblioteca.prestarLibro(codPrestamo, idPrestamo);
-                    break;
+            case 2:
+               System.out.print("nombre: ");
+               String nom = sc.nextLine();
+               System.out.print("id: ");
+               String usuId = sc.nextLine();
+               biblio.registrarUsuario(new Usuario(nom, usuId));
+               break;
 
-                case 4:
-                    System.out.print("Código libro: ");
-                    String codDevolucion = sc.nextLine();
-                    System.out.print("ID usuario: ");
-                    String idDevolucion = sc.nextLine();
-                    biblioteca.devolverLibro(codDevolucion, idDevolucion);
-                    break;
+            case 3:
+               System.out.print("codigo libro: ");
+               String codL = sc.nextLine();
+               System.out.print("id usuario: ");
+               String idU = sc.nextLine();
+               biblio.prestarLibro(codL, idU);
+               break;
 
-                case 5:
-                    biblioteca.mostrarLibrosDisponibles();
-                    break;
+            case 4:
+               System.out.print("codigo libro: ");
+               String codD = sc.nextLine();
+               System.out.print("id usuario: ");
+               String idD = sc.nextLine();
+               biblio.devolverLibro(codD, idD);
+               break;
 
-                case 6:
-                    biblioteca.mostrarUsuarios();
-                    break;
+            case 5:
+               biblio.mostrarLibrosDisponibles();
+               break;
 
-                case 7:
-                    biblioteca.mostrarHistorialPrestamos();
-                    break;
+            case 6:
+               biblio.mostrarUsuarios();
+               break;
 
-                case 0:
-                    System.out.println("Saliendo...");
-                    break;
+            case 7:
+               biblio.mostrarHistorialPrestamos();
+               break;
 
-                default:
-                    System.out.println("Opción inválida.");
-            }
-        } while (opcion != 0);
+            case 0:
+               System.out.println("saliendo... chaooo");
+               break;
 
-        sc.close();
-    }
+            default:
+               System.out.println("opcion mala, intenta de nuevo");
+         }
+      }while(op != 0);
+
+      sc.close();
+   }
 }

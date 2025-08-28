@@ -2,37 +2,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario {
-    private String nombre;
-    private String idUsuario;
-    private List<Libro> librosPrestados;
+   private String nom;
+   private String id;
+   private List<Libro> prestados;
 
-    public Usuario(String nombre, String idUsuario) {
-        this.nombre = nombre;
-        this.idUsuario = idUsuario;
-        this.librosPrestados = new ArrayList<>();
-    }
+   public Usuario(String n, String i) {
+      this.nom = n;
+      this.id = i;
+      this.prestados = new ArrayList<>();
+   }
 
-    public void mostrarDatos() {
-        System.out.println("Usuario: " + nombre + " | ID: " + idUsuario + " | Libros prestados: " + librosPrestados.size());
-    }
+   public void mostrarDatos() {
+      System.out.println("user: " + nom + " | id: " + id + " | prestados: " + prestados.size());
+   }
 
-    public boolean agregarPrestamo(Libro libro) {
-        if (librosPrestados.size() < 3) {
-            librosPrestados.add(libro);
-            return true;
-        }
-        return false;
-    }
+   public boolean agregarPrestamo(Libro l) {
+      if (prestados.size() < 3) {
+         prestados.add(l);
+         return true;
+      }
+      return false;
+   }
 
-    public boolean devolverLibro(Libro libro) {
-        return librosPrestados.remove(libro);
-    }
+   public boolean devolverLibro(Libro l) {
+      return prestados.remove(l);
+   }
 
-    public boolean puedePrestar() {
-        return librosPrestados.size() < 3;
-    }
+   public boolean puedePrestar() {
+      return prestados.size() < 3;
+   }
 
-    public String getIdUsuario() {
-        return idUsuario;
-    }
+   public String getIdUsuario() {
+      return id;
+   }
 }
